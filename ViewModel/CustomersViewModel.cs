@@ -1,4 +1,5 @@
-﻿using CoffeShop.Data;
+﻿using CoffeShop.Command;
+using CoffeShop.Data;
 using CoffeShop.Model;
 using CoffeShop.View;
 using System;
@@ -21,12 +22,19 @@ namespace CoffeShop.ViewModel
         public CustomersViewModel(ICustomerDataProvider customerDataProvider)
         {
             _customerDataProvider = customerDataProvider;
+            AddCommand = new DelegateCommand(Add);
+            MoveNavigationCommand = new DelegateCommand(MoveNavigation);
+            DeleteCommand = new DelegateCommand(Delete, CanDelete);
         }
 
         public ObservableCollection<CustomerItemViewModel> Customers { get; } = new ();
-        public CustomerItemViewModel? SelectedCustomer { get => _selectedCustomer; set { _selectedCustomer = value; RaisePropertyChanged(); } }
+        public CustomerItemViewModel? SelectedCustomer { get => _selectedCustomer; set { _selectedCustomer = value; RaisePropertyChanged(); DeleteCommand.RaiseCanExecuteChanged(); } }
 
         public NavigationSide NavigationSide { get => _navigationSide; private set { _navigationSide = value; RaisePropertyChanged(); } }
+
+        public DelegateCommand AddCommand { get; }
+        public DelegateCommand MoveNavigationCommand { get; }
+        public DelegateCommand DeleteCommand { get; }
 
         public async Task LoadAsync()
         {
@@ -46,7 +54,7 @@ namespace CoffeShop.ViewModel
             }
         }
 
-        internal void Add()
+        private void Add(object? parameter)
         {
             var customer = new Customer { FirstName = "New" };
             var viewModel = new CustomerItemViewModel(customer);
@@ -54,10 +62,21 @@ namespace CoffeShop.ViewModel
             SelectedCustomer = viewModel;
         }
 
-        internal void MoveNavigation()
+        private void MoveNavigation(object? parameter)
         {
             NavigationSide = NavigationSide == NavigationSide.Left ? NavigationSide.Right : NavigationSide.Left;
         }
+
+        private bool CanDelete(object? arg) => SelectedCustomer is not null;
+        private void Delete(object? obj)
+        {
+           if(SelectedCustomer is not null)
+            {
+                Customers.Remove(SelectedCustomer);
+                SelectedCustomer = null;
+            }
+        } 
+        
     }
     public enum NavigationSide 
     {
