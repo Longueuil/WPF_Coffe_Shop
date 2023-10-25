@@ -16,5 +16,7 @@ namespace CoffeShop.View
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        public virtual Task LoadAsync() => Task.CompletedTask;
     }
 }

@@ -23,3 +23,13 @@ C:\Projects\CoffeShop\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
 C:\Projects\CoffeShop\obj\Debug\net6.0-windows\Controls\HeaderControl.baml
 C:\Projects\CoffeShop\obj\Debug\net6.0-windows\View\CustomersView.g.cs
 C:\Projects\CoffeShop\obj\Debug\net6.0-windows\View\CustomersView.baml
+C:\Projects\CoffeShop\obj\Debug\net6.0-windows\Resources\Brushes.baml
+C:\Projects\CoffeShop\obj\Debug\net6.0-windows\App.baml
+C:\Projects\CoffeShop\obj\Debug\net6.0-windows\Resources\Converter.baml
+C:\Projects\CoffeShop\obj\Debug\net6.0-windows\View\ProductsView.g.cs
+C:\Projects\CoffeShop\obj\Debug\net6.0-windows\View\ProductsView.baml
+C:\Projects\CoffeShop\bin\Debug\net6.0-windows\Microsoft.Extensions.DependencyInjection.dll
+C:\Projects\CoffeShop\bin\Debug\net6.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Projects\CoffeShop\obj\Debug\net6.0-windows\CoffeShop.csproj.AssemblyReference.cache
+C:\Projects\CoffeShop\obj\Debug\net6.0-windows\CoffeShop.csproj.CopyComplete
+C:\Projects\CoffeShop\obj\Debug\net6.0-windows\Resources\Styles.baml

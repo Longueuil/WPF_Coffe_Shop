@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Projects\CoffeShop\App.xaml
-3-430395035
+7-526932670
 
-12-145748477
-194183970531
-Controls\HeaderControl.xaml;MainWindow.xaml;View\CustomersView.xaml;
+18336128042
+1961899584903
+Controls\HeaderControl.xaml;MainWindow.xaml;Resources\Brushes.xaml;Resources\Converter.xaml;Resources\Styles.xaml;View\CustomersView.xaml;View\ProductsView.xaml;
 
 False
 

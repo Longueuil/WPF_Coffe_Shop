@@ -4,7 +4,7 @@ using System.Security.AccessControl;
 
 namespace CoffeShop.ViewModel
 {
-    public class CustomerItemViewModel :ViewModelBase
+    public class CustomerItemViewModel :ValidationViewModelBase
     {
         private Customer _model;
 
@@ -18,7 +18,16 @@ namespace CoffeShop.ViewModel
         {
             get => _model.FirstName;
             set { _model.FirstName = value;
-                RaisePropertyChanged(); }
+                RaisePropertyChanged();
+                if (string.IsNullOrEmpty(_model.FirstName))
+                {
+                    AddError("First name is requared");
+                }
+                else
+                {
+                    ClearErrors();
+                }
+            }
         }
         public string? LastName
         {

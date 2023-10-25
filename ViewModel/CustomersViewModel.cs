@@ -28,7 +28,15 @@ namespace CoffeShop.ViewModel
         }
 
         public ObservableCollection<CustomerItemViewModel> Customers { get; } = new ();
-        public CustomerItemViewModel? SelectedCustomer { get => _selectedCustomer; set { _selectedCustomer = value; RaisePropertyChanged(); DeleteCommand.RaiseCanExecuteChanged(); } }
+        public CustomerItemViewModel? SelectedCustomer { get => _selectedCustomer;
+            set { 
+                _selectedCustomer = value; 
+                RaisePropertyChanged(); 
+                DeleteCommand.RaiseCanExecuteChanged(); 
+                RaisePropertyChanged(nameof(IsCustomerSelected));
+            } 
+        }
+        public bool IsCustomerSelected => SelectedCustomer is not null; 
 
         public NavigationSide NavigationSide { get => _navigationSide; private set { _navigationSide = value; RaisePropertyChanged(); } }
 
@@ -36,7 +44,7 @@ namespace CoffeShop.ViewModel
         public DelegateCommand MoveNavigationCommand { get; }
         public DelegateCommand DeleteCommand { get; }
 
-        public async Task LoadAsync()
+        public async override Task LoadAsync()
         {
             // check if in Custuments has elements
             if (Customers.Any())

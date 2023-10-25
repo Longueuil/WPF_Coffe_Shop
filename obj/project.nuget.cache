@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "rB6Q3hNDyjL9wu6BAWV83Q5uHAzz0VZz8s3ZH+/BDFoebHayqdgKE6pVUEW+KGJQZJ4w5mdFb1x/9bRJ3QR/kw==",
+  "dgSpecHash": "JwHFB1wGJqOYcjdj3dBLf+mW8rWJwNr7LfVJJrxCEy7w3FqkBOYqq1UhkgGaC8xhCWj2/BQX1folTDWahH0nWA==",
   "success": true,
   "projectFilePath": "C:\\Projects\\CoffeShop\\CoffeShop.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Me\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\7.0.0\\microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
+    "C:\\Users\\Me\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -4,9 +4,18 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CoffeShop" xmlns:controls="clr-namespace:CoffeShop.Controls" 
+        xmlns:viewModel="clr-namespace:CoffeShop.ViewModel"
         xmlns:view="clr-namespace:CoffeShop.View"
         mc:Ignorable="d"
-        Title="Coffe Shop" Height="500" Width="800">
+        Title="Coffe Shop" Height="500" Width="800" Loaded="MainWindow_Loaded">
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewModel:CustomersViewModel}">
+            <view:CustomersView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:ProductsViewModel}">
+            <view:ProductsView/>
+        </DataTemplate>
+    </Window.Resources>
     <Grid>
        
         <Grid.RowDefinitions>
@@ -19,8 +28,8 @@
         <!--Menu-->
         <Menu FontSize="20">
             <MenuItem Header="_View">
-                <MenuItem Header="_Customers"/>
-                <MenuItem Header="_Products"/>
+                <MenuItem Header="_Customers" Command="{Binding SelectViewModelCommand}" CommandParameter="{Binding CustomersViewModel}"/>
+                <MenuItem Header="_Products" Command="{Binding SelectViewModelCommand}" CommandParameter="{Binding ProductsViewModel}"/>
             </MenuItem>
         </Menu>
         
@@ -28,11 +37,10 @@
         <controls:HeaderControl Grid.Row="1" />
 
         <!--Customer view-->
-        <view:CustomersView Grid.Row="2"/>
-
+        <ContentControl Grid.Row="2" Content="{Binding SelectedViewModel}" />
 
         <!--Statusbar-->
-        <StatusBar Grid.Row="3">
+        <StatusBar Grid.Row="3" Background="{StaticResource HeaderBackgroundBrush}">
             <StatusBarItem FontSize="20" Content=" (c) Coffee Shop" />
         </StatusBar>       
        
